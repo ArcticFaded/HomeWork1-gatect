@@ -62,7 +62,7 @@ def descision_tree_param_selection(X, y, nfolds):
     max_depths = [1, 3, 5, 7, 10]
     min_samples_split = [0.01, 0.05, 0.1, 0.5]
     min_samples_leaf = [0.5, 2, 5, 10]
-    max_features = [5, 10, 15, 20, 25] if len(X.columns) == 25 else [10, 20, 30, 40, 46]
+    max_features = [5, 10, 15, 20, len(X.columns)] if len(X.columns) == 25 else [10, 20, 30, 40, len(X.columns)]
     param_grid = {'max_depth': max_depths, 
                   'min_samples_split': min_samples_split, 
                   'min_samples_leaf': min_samples_leaf,
