@@ -36,7 +36,7 @@ def classifer_creation(df_final, target_column):
     ANN_best_param, ANN_report = ANN_param_selection(X_train, y_train_ravel, 5)
     print('ANN finished')
     
-
+    print_report(svc_report, dt_report, bt_report, knn_report, ANN_report)
     params = {
             'SVC': svc_best_param,
             'DecisionTree': dt_best_param,
