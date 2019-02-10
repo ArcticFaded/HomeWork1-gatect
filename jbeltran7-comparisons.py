@@ -97,16 +97,19 @@ def classifer_creation(df_final, target_column):
     print("{classifer} took {time} to fit on X and y".format(classifer='ann', time=(timeit.default_timer() - start_time)))
     
     # PRUNE THE MODEL
-    dot_data = tree.export_graphviz(dt, out_file=None, feature_names=X_test.columns) 
-    graph = graphviz.Source(dot_data) 
-    graph.render("pre-pruning-" + target_column)
+    try:
+        dot_data = tree.export_graphviz(dt, out_file=None, feature_names=X_test.columns) 
+        graph = graphviz.Source(dot_data) 
+        graph.render("pre-pruning-" + target_column)
 
 
-    post_pruning(dt.tree_, 0, max_prune)
+        post_pruning(dt.tree_, 0, max_prune)
 
-    dot_data = tree.export_graphviz(dt, out_file=None, feature_names=X_test.columns) 
-    graph = graphviz.Source(dot_data) 
-    graph.render("post-pruning-" + target_column) 
+        dot_data = tree.export_graphviz(dt, out_file=None, feature_names=X_test.columns) 
+        graph = graphviz.Source(dot_data) 
+        graph.render("post-pruning-" + target_column)
+    except:
+        print('if you wish to render the pruning graphs please install graphviz')
 
     
     return svc, dt, bt, knn, ANN, X_train, y_train, X_test, y_test

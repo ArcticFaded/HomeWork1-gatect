@@ -6,6 +6,7 @@
 
 ## git clone https://github.com/ArcticFaded/HomeWork1-gatect
 ## cd HomeWork1-gatect
+## install external dependency graphviz if you wish to see the tree pruning
 ## pip install -r requirements.txt
 ## python jbeltran7-comparisons.py
 
